@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://ssssssav.glitch.me/`);
+  http.get(`http://hemn-music.glitch.me/`);
 }, 280000);
  
 
@@ -17,17 +17,16 @@ const dateformat = require('dateformat');
 const ms = require('parse-ms')
 const fs = require('fs');
 
-const prefix = "1";// برافكس بوت
+const prefix = "1";
 
 
 const client = new Discord.Client({ disableEveryone: true});
-const ownerID = ["541532350719459348"]; // اى دى صاحب بوت
-
+const ownerID = ["672998473594961954"]; // ايدي ادارة البوت او صاحب البوت ..
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
-// اختصارت اوامر
+
 let cmds = {
   play: { cmd: 'play', a: ['p'] },
   skip: { cmd: 'skip', a: ['s'] },
@@ -60,7 +59,7 @@ const ytdl = require('ytdl-core');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
+const youtube = new YouTube("AIzaSyCoQvWcvF2v6HZk03pp39Bpce-ByG2jAvI");
 
 
 let active = new Map();
@@ -561,11 +560,11 @@ client.on('message', message => {
     if (message.member.voiceChannel) {
       message.member.voiceChannel.join()
         .then(connection => { 
-          message.reply('**Shout, I am with you in Rum now. ..**!');
+          message.reply('**ابشر انا معاك ف الروم الان ..**!');
         })
         .catch(console.log);
     } else {
-      message.reply('**- You need be in a voice channel !**');
+      message.reply('**- لازم تخش روم صوتي!**');
     }
   }
 });
@@ -579,11 +578,11 @@ client.on('message', message => {
 
 
 
-    let argresult = message.content.split(` `).slice(1).join(' ');//گۆرینی  حالاتی بۆت 
+    let argresult = message.content.split(` `).slice(1).join(' ');
     if (message.content.startsWith(prefix + 'setStreaming')) {
       if (!ownerID.includes(message.author.id)) return;
       message.delete();
-      client.user.setGame(argresult, 'https://twitch.tv/Me Codes tv');
+      client.user.setGame(argresult, 'https://twitch.tv/Kahrbaa');
 
     } else if(message.content.startsWith(prefix + 'setWatching')) {
         client.user.setActivity(argresult,{type: 'WATCHING'});
@@ -613,9 +612,10 @@ client.on('message', message => {
 client.on('message', message => {
   
   if(message.content.startsWith(prefix + "help")) {
-  message.author.send( `**:notes:  Help Menu :  
+  message.author.send( `:notes:  ** Help Menu :  
 
-> Play : Play the song, add it to the list, or complete the song [p] 
+
+>  Play : Play the song, add it to the list, or complete the song [p] 
 > Pause :  Pause the song  
 > Resume :  Complete the song 
 > stop : To stop the song and exit the bot from the voice
@@ -627,10 +627,11 @@ client.on('message', message => {
 > Nowplaying : Show what's playing now [np] 
 > Ping : Bot response speed
 > repeat : Repeat the song
-> Leave : Exit the voice room
-**`)
+> Leave : Exit the voice room **
+`)
   }
 })
+
 
 
 
